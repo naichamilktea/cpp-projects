@@ -1,0 +1,37 @@
+操作说明：
+1.在windows下编译运行程序
+2.按照提示，输入一位整数，表示逻辑变量的个数，例如化简F(A,B,C)应输入3，然后回车进入下一步
+3.输入1或2，输入1则下一步输入逻辑表达式的最小项，输入2则下一步输入表达式的最大项，然后回车进入下一步
+4.输入最小项或最大项，中间以空格分割，最后以-1结束。例如化简F(A,B,C)=sigma(0,2,4),应输入0 2 4 -1然后回车，得到输出结果
+5.关于输出结果格式：final results前的输出内容均为调试产生的无效信息。final results后为结果，每一行对应一个蕴含项。group后面的几个数字表示该项所包含的最小项，binary后面的数字为这一组数字具有的比特位（某一位为2表示该位置可以为0也可以为1），changed=0表明该项为质蕴含项，不能再进行合并。
+测试数据：
+input:
+4
+1
+1 2 3 5 7 11 13 -1
+output:
+the final answer is:
+ min_group2 3 binary=0012 changed=0
+ min_group1 3 5 7 binary=0221 changed=0
+ min_group3 11 binary=2011 changed=0
+ min_group5 13 binary=2101 changed=0
+input:
+4
+1
+2 4 6 8 9 10 12 13 15 -1
+output:
+the final answer is:
+min_group8 9 12 13 binary=1202 changed=0
+ min_group13 15 binary=1121 changed=0
+ min_group2 10 binary=2010 changed=0
+ min_group4 6 binary=0120 changed=0
+input:
+4
+1
+0 1 2 3 5 7 8 11 13 10 -1
+output:
+the final answer is:
+ min_group0 2 8 10 binary=2020 changed=0
+ min_group1 3 5 7 binary=0221 changed=0
+ min_group2 3 10 11 binary=2012 changed=0
+ min_group5 13 binary=2101 changed=0
